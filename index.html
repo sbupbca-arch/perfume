@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison d'Élixir - World-class Haute Parfumerie & Luxury Fragrance Ateliers. Discover artisanal extrait de parfum, private blends, and rare olfactive masterworks.">
+  <title>Maison d'Élixir | High-End Haute Parfumerie & Fine Fragrances</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Swiper 11 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Dark Luxury Cursor -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-circle"></div>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Luxury Preloader Screen -->
+  <div id="loader-screen">
+    <div class="loader-brand">
+      <i class="fas fa-crown loader-logo-icon"></i>
+      <h1 class="loader-title gold-text">Maison d'Élixir</h1>
+      <p class="gold-subheading">Haute Parfumerie Paris</p>
+    </div>
+    <div class="loader-progress-container">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-percentage" id="loader-percentage">0%</div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="position-fixed bottom-0 start-0 p-3" style="z-index: 10000;"></div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" title="Return to Peak">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <!-- Sticky Luxury Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-luxury">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-crown text-warning me-2 fs-4"></i>
+        <span>Maison</span> d'Élixir
+      </a>
+
+      <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-3">
+        <button class="navbar-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#wishlistDrawer">
+          <i class="far fa-heart"></i>
+          <span class="badge-count" id="wishlist-badge-mobile">0</span>
+        </button>
+        <button class="navbar-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="badge-count" id="cart-badge-mobile">0</span>
+        </button>
+      </div>
+
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLuxuryContent">
+        <i class="fas fa-bars fs-3 text-warning"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarLuxuryContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="d-none d-lg-flex align-items-center gap-3">
+          <button class="navbar-icon-btn" data-bs-toggle="modal" data-bs-target="#searchModal">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="navbar-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#wishlistDrawer">
+            <i class="far fa-heart"></i>
+            <span class="badge-count" id="wishlist-badge">0</span>
+          </button>
+          <button class="navbar-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="badge-count" id="cart-badge">0</span>
+          </button>
+          <a href="products.html" class="btn-luxury-outline">Shop Collection</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <canvas id="hero-particles-canvas"></canvas>
+    <div class="container hero-content">
+      <div class="row align-items-center min-vh-100 py-5">
+        <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+          <span class="gold-subheading hero-subheading"><i class="fas fa-gem me-2"></i> Private Reserve Edition</span>
+          <h1 class="hero-title">An Alchemy Of <span class="gold-text">Pure Essence</span></h1>
+          <p class="hero-subtitle">Immerse yourself in rare artisanal extraits de parfum, crafted with sacred woods, royal roses, and liquid gold from the world's most secretive fragrance gardens.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start hero-btn-group">
+            <a href="products.html" class="btn-luxury-gold">
+              <span>Explore Products</span>
+              <i class="fas fa-arrow-right fs-6 ms-1"></i>
+            </a>
+            <a href="about.html" class="btn-luxury-outline">
+              <i class="fas fa-feather me-2"></i> Our Heritage
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center position-relative">
+          <div class="hero-bottle-wrapper">
+            <div class="hero-bottle-bg-glow"></div>
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Élixir Noir Luxury Perfume Bottle" class="hero-bottle-img tilt-card img-fluid" data-tilt>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="gold-subheading">Curated Repertoires</span>
+        <h2 class="section-title">Explore Fragrance Categories</h2>
+        <div class="section-title-divider"></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80" alt="Pour Homme Colognes" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Pour Homme</h3>
+              <p class="category-card-subtitle">Intense Smoked Woods & Dark Spices</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Homme</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80" alt="Pour Femme Fragrances" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Pour Femme</h3>
+              <p class="category-card-subtitle">Radiant Rose, Jasmine & Cashmere Musk</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Femme</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80" alt="Unisex Essence" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Unisex Extraits</h3>
+              <p class="category-card-subtitle">Harmonious Amber, Vanilla & Cardamom</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Unisex</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Private Reserve Blend" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Private Reserve</h3>
+              <p class="category-card-subtitle">Rare Aged Oud, Liquid Amber & Gold</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Reserve</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80" alt="Luxury Coffrets & Gift Sets" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Luxury Coffrets</h3>
+              <p class="category-card-subtitle">Bespoke Velvet Packaging & Miniature Sets</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Coffrets</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Limited Royal Edition" class="category-card-img">
+            <div class="category-card-overlay">
+              <h3 class="category-card-title">Royal Limited Edition</h3>
+              <p class="category-card-subtitle">Numbered Flacons Engraved in Pure Gold</p>
+              <div class="category-card-btn"><span class="btn-luxury-outline py-2 px-3 fs-7">Browse Limited</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="section-padding bg-dark-secondary">
+    <div class="container">
+      <div class="section-header">
+        <span class="gold-subheading">Masterpiece Selections</span>
+        <h2 class="section-title">The Best Selling Extraits</h2>
+        <div class="section-title-divider"></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card tilt-card" data-tilt>
+            <span class="product-badge">Best Seller</span>
+            <button class="product-wishlist-btn" onclick="toggleWishlist('p1', this)">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="product-img-wrapper" onclick="openQuickView('p1')">
+              <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Élixir Noir Privé" class="product-img">
+            </div>
+            <p class="product-category-text">Oud & Dark Woods</p>
+            <h4 class="product-title" onclick="openQuickView('p1')">Élixir Noir Privé</h4>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span class="text-white ms-1 fs-7">(5.0 / 128)</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <span class="product-price">$340.00</span>
+                <span class="product-price-old">$390.00</span>
+              </div>
+              <button class="btn-luxury-outline py-2 px-3" onclick="addToCart('p1')">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card tilt-card" data-tilt>
+            <span class="product-badge">Exclusive</span>
+            <button class="product-wishlist-btn" onclick="toggleWishlist('p2', this)">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="product-img-wrapper" onclick="openQuickView('p2')">
+              <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80" alt="Velvet Rose Imperiale" class="product-img">
+            </div>
+            <p class="product-category-text">Royal Floral</p>
+            <h4 class="product-title" onclick="openQuickView('p2')">Velvet Rose Imperiale</h4>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span class="text-white ms-1 fs-7">(4.9 / 94)</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <span class="product-price">$295.00</span>
+                <span class="product-price-old">$320.00</span>
+              </div>
+              <button class="btn-luxury-outline py-2 px-3" onclick="addToCart('p2')">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card tilt-card" data-tilt>
+            <span class="product-badge">Limited Edition</span>
+            <button class="product-wishlist-btn" onclick="toggleWishlist('p3', this)">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="product-img-wrapper" onclick="openQuickView('p3')">
+              <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Sovereign Gold Extract" class="product-img">
+            </div>
+            <p class="product-category-text">Amber & Spice</p>
+            <h4 class="product-title" onclick="openQuickView('p3')">Sovereign Gold Extract</h4>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span class="text-white ms-1 fs-7">(5.0 / 210)</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <span class="product-price">$420.00</span>
+                <span class="product-price-old">$480.00</span>
+              </div>
+              <button class="btn-luxury-outline py-2 px-3" onclick="addToCart('p3')">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="products.html" class="btn-luxury-gold">
+          <span>View All Products</span>
+          <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redesigned VIP Atelier Newsletter Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="newsletter-card">
+        <i class="fas fa-crown text-warning fs-3 mb-3 d-block"></i>
+        <span class="gold-subheading">By Private Invitation</span>
+        <h2 class="section-title text-white mb-3">Join The VIP Atelier Club</h2>
+        <p class="text-white-50 mx-auto mb-4" style="max-width: 580px;">Receive confidential invitations to secret pre-launch reserve flacons, private masterclasses in Paris, and exclusive patron gifts.</p>
+        
+        <form id="newsletter-form" class="newsletter-form-wrapper">
+          <div class="newsletter-bar-container">
+            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Enter your private email address..." required>
+            <button type="submit" class="btn-luxury-gold">
+              <span>Subscribe</span>
+              <i class="fas fa-paper-plane ms-1"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-luxury">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <a class="navbar-brand fs-3 mb-3 d-inline-block" href="index.html">
+            <i class="fas fa-crown text-warning me-2"></i>
+            <span>Maison</span> d'Élixir
+          </a>
+          <p class="text-muted pe-lg-4">World-renowned haute parfumerie house dedicated to creating rare extraits de parfum, artisanal flacons, and unforgettable olfactive signatures.</p>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Pour Homme</a></li>
+            <li><a href="products.html">Pour Femme</a></li>
+            <li><a href="products.html">Unisex Reserve</a></li>
+            <li><a href="products.html">Private Oud</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-title">Atelier Care</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Bespoke Consultations</a></li>
+            <li><a href="contact.html">Global Concierge</a></li>
+            <li><a href="contact.html">Refill Service</a></li>
+            <li><a href="contact.html">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-title">Flagships</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Place Vendôme, Paris</a></li>
+            <li><a href="contact.html">Bond Street, London</a></li>
+            <li><a href="contact.html">Fifth Ave, New York</a></li>
+            <li><a href="contact.html">Dubai Mall, UAE</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 Maison d'Élixir Parfums Paris. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Offcanvas & Modals -->
+  <div class="offcanvas offcanvas-end offcanvas-dark" tabindex="-1" id="cartDrawer">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title gold-text"><i class="fas fa-shopping-bag me-2"></i> Your Luxury Bag</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cart-drawer-items" class="flex-grow-1"></div>
+      <div class="border-top border-secondary pt-3 mt-auto">
+        <div class="d-flex justify-content-between fs-5 mb-3">
+          <span>Subtotal</span>
+          <span class="gold-text fw-bold" id="cart-total-price">$0.00</span>
+        </div>
+        <button class="btn-luxury-gold w-100 py-3 justify-content-center" onclick="showToast('Redirecting to Secure Luxury Checkout...')">
+          <span>Proceed To Checkout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end offcanvas-dark" tabindex="-1" id="wishlistDrawer">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title gold-text"><i class="far fa-heart me-2"></i> Private Wishlist</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="wishlist-drawer-items"></div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="quickViewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-dark">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row align-items-center g-4">
+            <div class="col-md-6 text-center">
+              <img id="qv-image" src="" alt="Perfume Preview" class="img-fluid rounded" style="max-height: 320px; object-fit: contain;">
+            </div>
+            <div class="col-md-6">
+              <span id="qv-category" class="gold-subheading fs-7 mb-1">Fragrance</span>
+              <h3 id="qv-title" class="h2 text-white mb-2">Perfume Name</h3>
+              <div id="qv-price" class="product-price fs-3 mb-3">$0.00</div>
+
+              <div class="notes-pyramid">
+                <div class="note-pyramid-row"><span class="note-pyramid-label">Top Notes</span><span id="qv-top" class="text-white-50"></span></div>
+                <div class="note-pyramid-row"><span class="note-pyramid-label">Heart Notes</span><span id="qv-heart" class="text-white-50"></span></div>
+                <div class="note-pyramid-row"><span class="note-pyramid-label">Base Notes</span><span id="qv-base" class="text-white-50"></span></div>
+              </div>
+
+              <button id="qv-add-btn" class="btn-luxury-gold w-100 py-3 justify-content-center">
+                <i class="fas fa-bag-shopping me-2"></i> Add To Luxury Bag
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-dark">
+        <div class="modal-body p-4">
+          <div class="d-flex align-items-center border-bottom border-secondary pb-2 mb-3">
+            <i class="fas fa-search gold-text fs-4 me-3"></i>
+            <input type="text" class="form-control bg-transparent border-0 text-white shadow-none" placeholder="Search Oud, Rose, Amber, Vanilla...">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
